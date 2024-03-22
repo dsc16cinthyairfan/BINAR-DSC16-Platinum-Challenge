@@ -5,14 +5,14 @@ def txt_to_csv(txt_file, csv_file):
         lines = file.readlines()
 
     with open(csv_file, 'w', newline='') as file:
-        fieldnames = ['tweets', 'label']
+        fieldnames = ['tweets', 'labels']
 
         writer = csv.DictWriter(file, fieldnames=fieldnames, delimiter = ',', quoting=csv.QUOTE_NONNUMERIC)
         writer.writeheader()
 
         for line in lines:
             words = line.strip().split("\t")
-            writer.writerow({ 'tweets': words[0], 'label': words[-1]})
+            writer.writerow({ 'tweets': words[0], 'labels': words[-1]})
 
     print("File berhasil dikonversi!")
 
